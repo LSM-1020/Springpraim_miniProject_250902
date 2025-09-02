@@ -1,0 +1,139 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #fffaf3;
+  color: #5c4033;
+  padding: 40px 20px;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+h1, h2 {
+  text-align: center;
+  color: #8b5e3c;
+  margin-bottom: 20px;
+}
+
+.menu-list ul {
+  list-style: none;
+  padding: 0;
+  margin: 0 0 40px 0;
+}
+
+.menu-list li {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  padding: 12px 0;
+  border-bottom: 1px solid #e0c9a6;
+  font-size: 1.2em;
+}
+
+.btn-add {
+  background-color: #a47148;
+  border: none;
+  color: white;
+  padding: 6px 15px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  font-weight: 600;
+}
+
+.btn-add:hover {
+  background-color: #8b5e3c;
+}
+
+/* 장바구니 섹션 */
+.cart-section {
+  margin-top: 40px;
+}
+
+#cart-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 15px;
+}
+
+#cart-table th,
+#cart-table td {
+  border: 1px solid #e0c9a6;
+  padding: 12px 15px;
+  text-align: center;
+}
+
+#cart-table th {
+  background-color: #f5e9dc;
+  color: #8b5e3c;
+}
+
+.cart-total {
+  font-size: 1.2em;
+  margin-bottom: 15px;
+  text-align: right;
+}
+
+#order-button {
+  width: 100%;
+  background-color: #a47148;
+  border: none;
+  color: white;
+  padding: 12px 0;
+  font-size: 1.2em;
+  font-weight: 700;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+
+#order-button:disabled {
+  background-color: #d1b888;
+  cursor: not-allowed;
+}
+
+#order-button:hover:not(:disabled) {
+  background-color: #8b5e3c;
+}
+.order-list-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 30px;
+}
+
+.order-list-table th,
+.order-list-table td {
+  border: 1px solid #e0c9a6;
+  padding: 12px 15px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.order-list-table th {
+  background-color: #f5e9dc;
+  color: #8b5e3c;
+}
+
+.btn-container {
+  text-align: center;
+}
+
+.btn-back {
+  display: inline-block;
+  background-color: #a47148;
+  color: white;
+  padding: 10px 25px;
+  font-weight: 700;
+  font-size: 1.1em;
+  border-radius: 6px;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+}
+
+.btn-back:hover {
+  background-color: #8b5e3c;
+}
+

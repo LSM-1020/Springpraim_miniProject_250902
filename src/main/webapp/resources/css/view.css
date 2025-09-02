@@ -1,0 +1,91 @@
+@charset "UTF-8";
+
+/* 기본 설정 */
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #fffaf3;
+  color: #5c4033;
+  margin: 0;
+  padding: 0;
+}
+
+/* 게시글 상세보기 섹션 */
+.view-section {
+  padding: 60px 20px;
+  background-color: #fffaf3;
+}
+
+.view-container {
+  max-width: 800px;
+  margin: 0 auto;
+  background-color: #f9f2e7;
+  padding: 40px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(181, 137, 86, 0.15);
+  color: #5c4033;
+}
+
+/* 제목 */
+.view-title {
+  font-size: 2em;
+  margin-bottom: 20px;
+  color: #8b5e3c;
+  word-break: break-word;
+}
+
+/* 작성자, 날짜, 조회수 정보 */
+.view-meta {
+  display: flex;
+  justify-content: space-between;
+  font-size: 0.95em;
+  margin-bottom: 30px;
+  flex-wrap: wrap;
+  gap: 10px;
+}
+
+.view-meta span {
+  color: #7d5a4f;
+}
+
+/* 본문 내용 */
+.view-content {
+  font-size: 1.1em;
+  line-height: 1.8;
+  white-space: pre-wrap;
+  margin-bottom: 40px;
+  background-color: #fff;
+  padding: 20px;
+  border-radius: 8px;
+  border: 1px solid #e0c9a6;
+}
+
+/* 하단 버튼 영역 */
+.view-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+/* 공통 버튼 스타일 */
+.btn-view {
+  padding: 10px 20px;
+  background-color: #a47148;
+  color: white;
+  text-decoration: none;
+  border-radius: 6px;
+  font-weight: 600;
+  transition: background-color 0.3s ease;
+}
+
+.btn-view:hover {
+  background-color: #8b5e3c;
+}
+
+/* 삭제 버튼만 별도 스타일 */
+.btn-view.delete {
+  background-color: #d9534f;
+}
+
+.btn-view.delete:hover {
+  background-color: #c9302c;
+}

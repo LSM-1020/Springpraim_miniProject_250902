@@ -1,0 +1,46 @@
+@charset "UTF-8";
+
+.location-section {
+  padding: 60px 20px;
+  background-color: #fffaf3;
+  color: #5c4033;
+}
+
+.location-section .container {
+  max-width: 900px;
+  margin: 0 auto;
+}
+
+.location-section h1 {
+  font-size: 2.5em;
+  margin-bottom: 30px;
+  color: #8b5e3c;
+  text-align: center;
+}
+
+.location-content {
+  display: flex;
+  gap: 40px;
+  align-items: flex-start;
+  justify-content: center;
+  flex-wrap: wrap;
+}
+
+/* 왼쪽 길 안내 텍스트 */
+.location-info {
+  flex: 1 1 300px;
+  text-align: left;
+  font-size: 1.1em;
+  line-height: 1.5;
+  color: #5c4033;
+}
+
+/* 오른쪽 지도 */
+.location-map {
+  flex: 1 1 400px;
+  width: 100%;
+  height: 400px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(181, 137, 86, 0.2);
+  overflow: hidden;
+}

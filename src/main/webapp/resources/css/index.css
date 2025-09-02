@@ -1,0 +1,117 @@
+@charset "UTF-8";
+
+html, body {
+  height: 100%;
+  margin: 0;
+  padding: 0;
+}
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #fffaf3;
+  color: #5c4033;
+  line-height: 1.6;
+
+  display: flex;
+  flex-direction: column;
+  min-height: 100vh; /* 뷰포트 전체 높이 */
+}
+
+.main-content {
+  flex: 1 0 auto;
+  padding-bottom: 40px; /* 푸터 높이와 동일 */
+  text-align: center;
+}
+
+.site-footer {
+  flex-shrink: 0; /* 푸터는 절대 줄어들지 않음 */
+  height: 40px; /* 푸터 높이 고정 */
+  background-color: #f5e9dc;
+  padding: 10px 0;
+  border-top: 1px solid #e0c9a6;
+  font-size: 0.9em;
+  color: #8b5e3c;
+  text-align: center;
+  box-sizing: border-box;
+}
+
+/* =================================
+   헤더 (Header)
+==================================== */
+.site-header {
+  background-color: #f5e9dc;
+  padding: 20px 0;
+  border-bottom: 1px solid #e0c9a6;
+}
+
+.site-header .container {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+.logo {
+  font-size: 1.8em;
+  font-weight: bold;
+  color: #8b5e3c;
+  padding-left: 20px; /* 좌측 여백 추가 */
+}
+
+.nav-menu {
+  display: flex;
+  list-style: none;
+  gap: 35px;
+  align-items: center;
+}
+
+.nav-menu li:first-child,
+.nav-menu .login-menu {
+  margin-right: 30px;
+}
+
+.nav-menu li a {
+  text-decoration: none;
+  color: #5c4033;
+  font-weight: bold;
+  transition: color 0.3s;
+  font-size: 1.1em;
+}
+
+.nav-menu li a:hover {
+  color: #a47148;
+}
+
+/* =================================
+   메인 콘텐츠 (Main Content)
+==================================== */
+.main-content {
+  text-align: center;
+
+  flex: 1; /* 헤더와 푸터를 제외한 공간 모두 차지 */
+}
+
+.hero {
+  padding: 80px 0; /* 콘텐츠 내부 여백 */
+}
+
+.hero h1 {
+  font-size: 3em;
+  margin-bottom: 10px;
+}
+
+.hero p {
+  font-size: 1.2em;
+  color: #7d5a4f;
+}
+
+/* =================================
+   푸터 (Footer)
+==================================== */
+.site-footer {
+  background-color: #f5e9dc;
+  padding: 20px 0;
+  border-top: 1px solid #e0c9a6;
+  font-size: 0.9em;
+  color: #8b5e3c;
+  text-align: center;
+}

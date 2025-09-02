@@ -1,0 +1,85 @@
+@charset "UTF-8";
+/* 로그인 페이지 전용 스타일 */
+
+/* 로그인 페이지 전용 스타일 */
+
+.login-section {
+  max-width: 400px;
+  margin: 80px auto;
+  background-color: #f9f2e7;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(181, 137, 86, 0.2);
+  color: #5c4033;
+}
+
+.login-section h1 {
+  margin-bottom: 30px;
+  font-size: 2.2em;
+  text-align: center;
+  color: #8b5e3c;
+}
+
+.login-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1em;
+  text-align: center; /* 레이블도 가운데 정렬 */
+}
+
+.login-form input[type="text"],
+.login-form input[type="password"] {
+  width: 66.6667%;       /* 너비 2/3 */
+  padding: 10px 12px;
+  margin: 0 auto 20px auto; /* 가운데 정렬 */
+  display: block;
+  border: 1.5px solid #e0c9a6;
+  border-radius: 6px;
+  font-size: 1em;
+  transition: border-color 0.3s ease;
+  text-align: center;    /* 입력 텍스트도 가운데 정렬 */
+}
+
+.login-form input[type="text"]:focus,
+.login-form input[type="password"]:focus {
+  border-color: #a47148;
+  outline: none;
+}
+
+.btn-submit {
+  width: 66.6667%;       /* 입력란과 동일 너비 */
+  max-width: 400px;
+  padding: 12px 0;
+  background-color: #a47148;
+  border: none;
+  border-radius: 6px;
+  color: white;
+  font-size: 1.1em;
+  font-weight: 700;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+  display: block;
+  margin: 0 auto 15px auto; /* 가운데 정렬, 아래 여백 */
+}
+
+.btn-submit:hover {
+  background-color: #8b5e3c;
+}
+
+.signup-text {
+  text-align: center;
+  font-size: 0.95em;
+  color: #5c4033;
+}
+
+.signup-text a {
+  color: #a47148;
+  text-decoration: none;
+  font-weight: 700;
+  margin-left: 5px;
+}
+
+.signup-text a:hover {
+  text-decoration: underline;
+}

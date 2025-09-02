@@ -1,0 +1,98 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #fffaf3;
+  color: #5c4033;
+  margin: 0;
+  padding: 0;
+}
+
+.write-section {
+  padding: 60px 20px;
+}
+
+.write-container {
+  max-width: 700px;
+  margin: 0 auto;
+  background-color: #f9f2e7;
+  padding: 40px 30px;
+  border-radius: 10px;
+  box-shadow: 0 4px 10px rgba(181, 137, 86, 0.1);
+}
+
+.write-title {
+  font-size: 2em;
+  margin-bottom: 30px;
+  text-align: center;
+  color: #8b5e3c;
+}
+
+/* form 그룹 */
+.write-form .form-group {
+  margin-bottom: 25px;
+}
+
+.write-form label {
+  display: block;
+  font-weight: 600;
+  margin-bottom: 8px;
+  font-size: 1em;
+  color: #5c4033;
+}
+
+.write-form input[type="text"],
+.write-form textarea {
+  width: 100%;
+  padding: 12px;
+  border: 1.5px solid #e0c9a6;
+  border-radius: 6px;
+  font-size: 1em;
+  resize: vertical;
+  transition: border-color 0.3s ease;
+}
+
+.write-form input:focus,
+.write-form textarea:focus {
+  border-color: #a47148;
+  outline: none;
+}
+
+/* 버튼 그룹 */
+.form-actions {
+  display: flex;
+  justify-content: flex-end;
+  gap: 12px;
+}
+
+.btn-submit {
+  background-color: #a47148;
+  color: white;
+  border: none;
+  padding: 10px 25px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: background-color 0.3s;
+}
+
+.btn-submit:hover {
+  background-color: #8b5e3c;
+}
+
+.btn-cancel {
+  background-color: #ccc;
+  color: #333;
+  padding: 10px 20px;
+  font-size: 1em;
+  font-weight: bold;
+  border-radius: 6px;
+  text-decoration: none;
+  display: inline-block;
+  transition: background-color 0.3s;
+}
+
+.btn-cancel:hover {
+  background-color: #bbb;
+}
