@@ -1,0 +1,94 @@
+@charset "UTF-8";
+
+body {
+  font-family: 'Nanum Gothic', sans-serif;
+  background-color: #fffaf3;
+  color: #5c4033;
+  padding: 40px 20px;
+  margin: 0;
+}
+
+.container {
+  max-width: 700px;
+  margin: 0 auto;
+}
+
+/* 제목 */
+.title {
+  text-align: center;
+  color: #8b5e3c;
+  font-size: 2em;
+  margin-bottom: 30px;
+}
+
+/* 주문 내역 테이블 */
+.order-table {
+  width: 100%;
+  border-collapse: collapse;
+  margin-bottom: 40px;
+  box-shadow: 0 0 10px rgba(165, 113, 72, 0.2);
+  background-color: #fff;
+  border-radius: 6px;
+  overflow: hidden;
+}
+
+.order-table th,
+.order-table td {
+  border: 1px solid #e0c9a6;
+  padding: 15px 10px;
+  text-align: center;
+  font-size: 1.1em;
+}
+
+.order-table th {
+  background-color: #f5e9dc;
+  color: #8b5e3c;
+  font-weight: 700;
+}
+
+.order-table tbody tr:nth-child(even) {
+  background-color: #faf4ea;
+}
+
+/* 총 합계 행 */
+.total-row td {
+  font-weight: 700;
+  background-color: #d1b888;
+  color: #5c4033;
+  font-size: 1.2em;
+}
+
+/* 버튼 컨테이너 */
+.btn-container {
+  text-align: center;
+  margin-bottom: 50px;
+}
+
+/* 공통 버튼 스타일 */
+.btn {
+  display: inline-block;
+  background-color: #a47148;
+  color: white;
+  padding: 12px 30px;
+  font-weight: 700;
+  font-size: 1.1em;
+  border: none;
+  border-radius: 6px;
+  cursor: pointer;
+  text-decoration: none;
+  transition: background-color 0.3s ease;
+  margin: 0 10px;
+}
+
+.btn:hover {
+  background-color: #8b5e3c;
+}
+
+/* 위험 버튼 (삭제, 전체삭제 등) */
+.btn-danger {
+  background-color: #d9534f;
+}
+
+.btn-danger:hover {
+  background-color: #b52b27;
+}

@@ -16,25 +16,25 @@
     <div class="write-container">
       <h1 class="write-title">게시글 작성</h1>
 
-      <form action="/board/write" method="post" class="write-form">
+      <form action="bwriteOk" method="post" class="write-form">
         <div class="form-group">
           <label for="title">제목</label>
-          <input type="text" id="title" name="title" required />
+          <input type="text" id="title" name="btitle" required />
         </div>
 
         <div class="form-group">
           <label for="author">글쓴이</label>
-          <input type="text" id="author" name="author" required />
+          <input type="text" id="author" name="bwriter" value="${sessionScope.sessionId}" required readonly="readonly" />
         </div>
 
         <div class="form-group">
           <label for="content">내용</label>
-          <textarea id="content" name="content" rows="10" required></textarea>
+          <textarea id="content" name="bcontent" rows="10" required></textarea>
         </div>
 
         <div class="form-actions">
           <button type="submit" class="btn-submit">등록</button>
-          <a href="/board" class="btn-cancel">취소</a>
+         <a href="${pageContext.request.contextPath}/boardlist" class="btn-cancel">취소</a>
         </div>
       </form>
     </div>

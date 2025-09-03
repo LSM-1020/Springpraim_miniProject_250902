@@ -5,6 +5,7 @@ body {
   background-color: #fffaf3;
   color: #5c4033;
   padding: 40px 20px;
+  margin: 0;
 }
 
 .container {
@@ -12,128 +13,117 @@ body {
   margin: 0 auto;
 }
 
+/* 제목 스타일 */
 h1, h2 {
   text-align: center;
   color: #8b5e3c;
   margin-bottom: 20px;
 }
 
-.menu-list ul {
-  list-style: none;
-  padding: 0;
-  margin: 0 0 40px 0;
+/* 메뉴 목록 */
+.menu-list {
+  margin-bottom: 40px;
 }
 
 .menu-list li {
+  list-style: none;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  padding: 12px 0;
+  padding: 12px 15px;
   border-bottom: 1px solid #e0c9a6;
   font-size: 1.2em;
 }
 
-.btn-add {
+.coffee-name {
+  font-weight: 600;
+  color: #6b4c2b;
+}
+
+.coffee-price {
+  margin-right: 15px;
+  color: #8b5e3c;
+  font-weight: 500;
+}
+
+/* 담기 버튼 */
+.menu-list button {
   background-color: #a47148;
   border: none;
   color: white;
   padding: 6px 15px;
   border-radius: 6px;
   cursor: pointer;
+  font-weight: 700;
   transition: background-color 0.3s ease;
-  font-weight: 600;
 }
 
-.btn-add:hover {
+.menu-list button:hover {
   background-color: #8b5e3c;
 }
 
 /* 장바구니 섹션 */
 .cart-section {
   margin-top: 40px;
+  background-color: #fef9f1;
+  padding: 20px;
+  border-radius: 8px;
+  box-shadow: 0 2px 8px rgba(165, 113, 72, 0.3);
 }
 
-#cart-table {
+/* 장바구니 테이블 */
+.cart-section table {
   width: 100%;
   border-collapse: collapse;
   margin-bottom: 15px;
 }
 
-#cart-table th,
-#cart-table td {
+.cart-section th,
+.cart-section td {
   border: 1px solid #e0c9a6;
-  padding: 12px 15px;
+  padding: 12px 10px;
   text-align: center;
+  font-size: 1.1em;
+  color: #5c4033;
 }
 
-#cart-table th {
+.cart-section th {
   background-color: #f5e9dc;
+  font-weight: 700;
+}
+
+/* 총 합계 */
+.cart-total {
+  font-size: 1.3em;
+  text-align: right;
+  margin-bottom: 20px;
+  font-weight: 700;
   color: #8b5e3c;
 }
 
-.cart-total {
-  font-size: 1.2em;
-  margin-bottom: 15px;
-  text-align: right;
-}
-
-#order-button {
-  width: 100%;
+/* 주문하기 및 전체 취소 버튼 */
+.cart-section button {
   background-color: #a47148;
   border: none;
   color: white;
-  padding: 12px 0;
-  font-size: 1.2em;
+  padding: 12px 25px;
+  font-size: 1.1em;
   font-weight: 700;
   border-radius: 6px;
   cursor: pointer;
+  margin-right: 10px;
   transition: background-color 0.3s ease;
 }
 
-#order-button:disabled {
-  background-color: #d1b888;
-  cursor: not-allowed;
-}
-
-#order-button:hover:not(:disabled) {
-  background-color: #8b5e3c;
-}
-.order-list-table {
-  width: 100%;
-  border-collapse: collapse;
-  margin-bottom: 30px;
-}
-
-.order-list-table th,
-.order-list-table td {
-  border: 1px solid #e0c9a6;
-  padding: 12px 15px;
-  text-align: center;
-  font-size: 1.1em;
-}
-
-.order-list-table th {
-  background-color: #f5e9dc;
-  color: #8b5e3c;
-}
-
-.btn-container {
-  text-align: center;
-}
-
-.btn-back {
-  display: inline-block;
-  background-color: #a47148;
-  color: white;
-  padding: 10px 25px;
-  font-weight: 700;
-  font-size: 1.1em;
-  border-radius: 6px;
-  text-decoration: none;
-  transition: background-color 0.3s ease;
-}
-
-.btn-back:hover {
+.cart-section button:hover {
   background-color: #8b5e3c;
 }
 
+/* 전체 취소 버튼 - 조금 더 위험하게 보여주기 */
+.cart-section button[formaction*="clear"] {
+  background-color: #d9534f;
+}
+
+.cart-section button[formaction*="clear"]:hover {
+  background-color: #b52b27;
+}

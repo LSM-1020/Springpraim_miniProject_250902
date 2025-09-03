@@ -5,7 +5,7 @@
 <html lang="ko">
 <head>
   <meta charset="UTF-8" />
-  <title>${post.title} - 게시글 보기</title>
+  <title>${boardDto.btitle} - 게시글 보기</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/view.css" />
 </head>
 <body>
@@ -14,22 +14,26 @@
 
   <section class="view-section">
     <div class="view-container">
-      <h1 class="view-title">${post.title}</h1>
+      <h1 class="view-title">${boardDto.btitle}</h1>
 
       <div class="view-meta">
-        <span><strong>작성자:</strong> ${post.author}</span>
-        <span><strong>작성일:</strong> ${post.date}</span>
-        <span><strong>조회수:</strong> ${post.views}</span>
+        <span><strong>작성자:</strong> ${boardDto.bwriter}</span>
+        <span><strong>작성일:</strong> ${boardDto.bdate}</span>
+        <span><strong>조회수:</strong> ${boardDto.bhit}</span>
       </div>
 
       <div class="view-content">
-        <pre>${post.content}</pre>
+        <pre>${boardDto.bcontent}</pre>
       </div>
 
       <div class="view-actions">
-        <a href="/board" class="btn-view">목록</a>
-        <a href="/board/edit?id=${post.id}" class="btn-view">수정</a>
-        <a href="/board/delete?id=${post.id}" class="btn-view delete" onclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+        <a href="${pageContext.request.contextPath}/boardlist" class="btn-view">목록</a>     
+       
+     	
+      <c:if test="${sessionScope.sessionId == boardDto.bwriter}">
+    <a href="edit?bnum=${boardDto.bnum}" class="btn-view">수정</a>
+    <a href="boarddelete?bnum=${boardDto.bnum}" class="btn-view delete" sonclick="return confirm('정말 삭제하시겠습니까?');">삭제</a>
+</c:if>
       </div>
     </div>
   </section>

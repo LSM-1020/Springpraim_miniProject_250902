@@ -1,0 +1,40 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE mapper
+    PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN"
+    "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+     <mapper namespace="com.LSM.mini.dao.OrderDao">
+      <!-- board:order 1:1관계 매핑 -->
+	<resultMap type="com.LSM.mini.dto.OrderDto" id="orderWithBoard">
+		<id property="onum" column="onum" /> <!-- user 테이블의 기본키 셋팅 -->
+		<result property="amount"  column="amount" /> <!-- user 테이블의 나머지 필드 셋팅 -->
+		<result property="product"  column="product" /> <!-- user 테이블의 나머지 필드 셋팅 -->
+		<result property="price"  column="price" /> <!-- user 테이블의 나머지 필드 셋팅 -->
+		
+	<association property="memberDto" javaType="com.LSM.mini.dto.MemberDto">
+			<id property="memberid" column="memberid" />
+			<result property="membernum" column="membernum" />
+			<result property="memberpw" column="memberpw" />
+			<result property="membername" column="membername" />
+			<result property="memberdate" column="memberdate" />
+		</association>
+     </resultMap>
+     
+      <insert id="insertOrder" parameterType="com.LSM.mini.dto.OrderDto">
+   		 INSERT INTO ordertbl(onum, amount, product, price, oid)
+   		 VALUES(board_seq.nextval, #{amount}, #{product}, #{price}, #{oid})
+	</insert>
+
+   	<select id ="orderListByUserId" parameterType="string" resultMap="orderWithBoard">
+	    SELECT o.onum, o.amount, o.product, o.price, m.membername
+	  	FROM ordertbl o
+	  	INNER JOIN membertbl m ON o.oid = m.memberid
+	  	WHERE o.oid = #{oid}
+	  	ORDER BY o.onum DESC  
+   </select>
+   <delete id="deleteAllOrdersByUserId" parameterType="string">
+    	DELETE FROM ordertbl WHERE oid = #{oid}
+	</delete>
+     
+     
+     </mapper>
+     

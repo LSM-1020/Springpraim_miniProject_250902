@@ -1,6 +1,8 @@
 <%@ page language="java" contentType="text/html; charset=UTF-8" pageEncoding="UTF-8"%>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/core" prefix="c" %>
 <%@ taglib uri="http://java.sun.com/jsp/jstl/functions" prefix="fn" %>
+<%@taglib prefix="fmt" uri="http://java.sun.com/jsp/jstl/fmt"%>
+<%@ taglib prefix="c" uri="http://java.sun.com/jsp/jstl/core" %>
 
 <!DOCTYPE html>
 <html lang="ko">
@@ -15,7 +17,6 @@
 
   <section class="board-section">
     <h1>게시판</h1>
-
      <!-- 검색 & 글쓰기 버튼 영역 -->
     <div class="board-top-bar">
       <form action="/board/search" method="get" class="search-form">
@@ -29,53 +30,63 @@
       </form>
 
       <div class="write-btn-container">
-        <a href="write.jsp" class="btn-write">글쓰기</a>
+        <a href="${pageContext.request.contextPath}/bwrite" class="btn-write">글쓰기</a>
       </div>
     </div>
-
     <!-- 게시글 목록 테이블 -->
     <table class="board-table">
-      <thead>
-        <tr>
-          <th>번호</th>
-          <th>제목</th>
-          <th>내용</th>
-          <th>글쓴이</th>
-          <th>조회수</th>
-          <th>날짜</th>
-        </tr>
-      </thead>
-      <tbody>
-        <c:forEach var="post" items="${posts}">
-          <tr>
-            <td>${post.id}</td>
-            <td><a href="/board/view?id=${post.id}">${post.title}</a></td>
-            <td>${post.content}</td>
-            <td>${post.author}</td>
-            <td>${post.views}</td>
-            <td>${post.date}</td>
-          </tr>
-        </c:forEach>
-      </tbody>
-    </table>
+     <thead>
+		  <tr>
+		    <th>번호</th>
+		    <th>제목</th>
+		    <th>아이디</th>
+		    <th>글쓴이</th>
+		    <th>조회수</th>
+		    <th>등록일</th>
+		  </tr>
+	</thead>
+		<tbody>
+  <c:forEach items="${list}" var="board" varStatus="status">
+    <tr>
+      <td>${boardCount - status.index}</td>
+      <td>
+     <c:choose>
+            <c:when test="${fn:length(board.btitle) > 10}">
+              <a href="contentview?bnum=${board.bnum}" class="board-link">${fn:substring(board.btitle, 0, 10)}...</a>
+            </c:when>
+            <c:otherwise>
+              <a href="contentview?bnum=${board.bnum}" class="board-link">${board.btitle}</a>
+            </c:otherwise>
+          </c:choose>
+      </td>
+      
+      <td>${board.bwriter}</td>
+      <td>${board.memberDto.membername}</td>
+      <td>${board.bhit}</td>
+      <td><fmt:formatDate value="${board.bdate}" pattern="yyyy-MM-dd HH:mm" /></td> 
+    </tr>
+  </c:forEach>
+</tbody>
+	</table>
 
-   <div class="pagination">
-  <!-- 처음 페이지 이동 -->
-  <a href="?page=1" class="page-link ${currentPage == 1 ? 'disabled' : ''}">«</a>
 
-  <!-- 이전 페이지 이동 -->
-  <a href="?page=${currentPage - 1}" class="page-link ${currentPage == 1 ? 'disabled' : ''}">&lt;</a>
+<div class="pagination">
+  <!-- 처음 / 이전 -->
+  <c:if test="${pageNum > 1}">
+    <a href="boardlist?pageNum=1" class="page-link">&laquo;</a>
+    <a href="boardlist?pageNum=${pageNum - 1}" class="page-link">&lsaquo;</a>
+  </c:if>
 
-  <!-- 페이지 번호 -->
-  <c:forEach var="i" begin="1" end="${totalPages}">
-    <a href="?page=${i}" class="page-link ${currentPage == i ? 'active' : ''}">${i}</a>
+  <!-- 페이지 번호 출력 -->
+  <c:forEach var="i" begin="${startPage}" end="${endPage}">
+    <a href="boardlist?pageNum=${i}" class="page-link ${i == pageNum ? 'active' : ''}">${i}</a>
   </c:forEach>
 
-  <!-- 다음 페이지 이동 -->
-  <a href="?page=${currentPage + 1}" class="page-link ${currentPage == totalPages ? 'disabled' : ''}">&gt;</a>
-
-  <!-- 마지막 페이지 이동 -->
-  <a href="?page=${totalPages}" class="page-link ${currentPage == totalPages ? 'disabled' : ''}">»</a>
+  <!-- 다음 / 마지막 -->
+  <c:if test="${pageNum < totalPage}">
+    <a href="boardlist?pageNum=${pageNum + 1}" class="page-link">&rsaquo;</a>
+    <a href="boardlist?pageNum=${totalPage}" class="page-link">&raquo;</a>
+  </c:if>
 </div>
   </section>
 

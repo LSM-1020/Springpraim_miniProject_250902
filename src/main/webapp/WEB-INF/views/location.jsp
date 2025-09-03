@@ -6,8 +6,6 @@
   <meta charset="UTF-8" />
   <title>오시는 길 - 우리카페</title>
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/location.css" />
-  <!-- 카카오 지도 API -->
-  <script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=YOUR_KAKAO_API_KEY"></script>
 </head>
 <body>
 
@@ -18,9 +16,9 @@
       <h1>오시는 길</h1>
       <div class="location-content">
         <div class="location-info">
-          <p><strong>주소:</strong> 서울시 강남구 어딘가로 123</p>
-          <p><strong>전화번호:</strong> 02-123-4567</p>
-          <p><strong>지하철:</strong> 2호선 강남역 5번 출구에서 도보 5분</p>
+          <p><strong>주소:</strong> 서울 마포구 신촌로 176 </p>
+          <p><strong>전화번호:</strong> 02-313-1711</p>
+          <p><strong>지하철:</strong> 이대역 6번출구 직진 10m 중앙빌딩</p>
         </div>
         <div id="map" class="location-map"></div>
       </div>
@@ -29,22 +27,51 @@
 
   <%@ include file="include/footer.jsp" %>
 
-  <script>
-    // 카카오 지도 생성
-    var container = document.getElementById('map');
-    var options = {
-      center: new kakao.maps.LatLng(37.49794, 127.027621), // 카페 위치 좌표 (예시)
-      level: 3 // 확대 레벨
-    };
-    var map = new kakao.maps.Map(container, options);
+   <!-- 지도 자리 -->
+     <div id="map" style="width:500px;height:400px;"></div>
+	<script type="text/javascript" src="//dapi.kakao.com/v2/maps/sdk.js?appkey=8c6541871bc3305cd9e0a398a3f3115d&libraries=services"></script>
+	<script>
+		var container = document.getElementById('map');
+		var options = {
+			center: new kakao.maps.LatLng(37.5564397859151, 126.945190775648),
+			level: 3
+		};
 
-    // 마커 생성
-    var markerPosition  = new kakao.maps.LatLng(37.49794, 127.027621);
-    var marker = new kakao.maps.Marker({
-      position: markerPosition
-    });
-    marker.setMap(map);
-  </script>
+		var map = new kakao.maps.Map(container, options);
+		
+		//주소-좌표 변환 객체 생성
+	      var geocoder = new kakao.maps.services.Geocoder();
+	      
+	      var address = "서울특별시 마포구 신촌로 176, 중앙빌딩";
+	      
+	      geocoder.addressSearch(address, function(result, status) {
+	            if (status === kakao.maps.services.Status.OK) {
+	                // 검색된 좌표 (위도: y, 경도: x)
+	                var coords = new kakao.maps.LatLng(result[0].y, result[0].x);
+
+	                // 지도 중심 이동
+	                map.setCenter(coords);
+
+	                // 마커 생성
+	                var marker = new kakao.maps.Marker({
+	                    map: map,
+	                    position: coords
+	                });
+
+	                // 인포윈도우 생성 (주소 표시)
+	                var infowindow = new kakao.maps.InfoWindow({
+	                    content: '<div style="padding:5px;">' + address + '</div>'
+	                });
+	                infowindow.open(map, marker);
+
+	                // 콘솔에 위도 경도 출력
+	                console.log("위도: " + result[0].y + ", 경도: " + result[0].x);
+	            } else {
+	                alert("주소 검색 실패: " + status);
+	            }
+	        });
+	</script>
+    </div>
 
 </body>
 </html>

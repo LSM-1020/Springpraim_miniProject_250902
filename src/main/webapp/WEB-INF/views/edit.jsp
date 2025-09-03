@@ -16,28 +16,30 @@
     <div class="write-container">
       <h1 class="write-title">게시글 수정</h1>
 
-      <form action="/board/edit" method="post" class="write-form">
+      <form action="boardedit" method="post" class="write-form">
         <!-- 수정 시, id를 숨겨서 전송 -->
-        <input type="hidden" name="id" value="${post.id}" />
+         <input type="hidden" name="bnum" value="${boardDto.bnum}" />
+      
+        <input type="hidden" name="id" value="${boardDto.memberDto.memberid}" />
 
         <div class="form-group">
           <label for="title">제목</label>
-          <input type="text" id="title" name="title" value="${post.title}" required />
+          <input type="text" id="title" name="btitle" value="${boardDto.btitle}" required />
         </div>
 
         <div class="form-group">
           <label for="author">글쓴이</label>
-          <input type="text" id="author" name="author" value="${post.author}" readonly />
+          <input type="text" id="author" name="bwriter" value="${sessionScope.sessionId}" readonly />
         </div>
 
         <div class="form-group">
           <label for="content">내용</label>
-          <textarea id="content" name="content" rows="10" required>${post.content}</textarea>
+          <textarea id="content" name="bcontent" rows="10" required>${boardDto.bcontent}</textarea>
         </div>
 
         <div class="form-actions">
           <button type="submit" class="btn-submit">수정 완료</button>
-          <a href="/board/view?id=${post.id}" class="btn-cancel">취소</a>
+          <a href="/board/view?id=${boardDto.memberDto.memberid}" class="btn-cancel">취소</a>
         </div>
       </form>
     </div>
