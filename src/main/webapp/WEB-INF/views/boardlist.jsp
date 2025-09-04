@@ -70,11 +70,11 @@
 	</table>
 
 
-<div class="pagination">
-  <!-- 처음 / 이전 -->
-  <c:if test="${pageNum > 1}">
+ <div class="pagination">
+  <!-- 처음 / 이전 블럭 -->
+  <c:if test="${startPage > 1}">
     <a href="boardlist?pageNum=1" class="page-link">&laquo;</a>
-    <a href="boardlist?pageNum=${pageNum - 1}" class="page-link">&lsaquo;</a>
+    <a href="boardlist?pageNum=${startPage - 1}" class="page-link">&lsaquo;</a>
   </c:if>
 
   <!-- 페이지 번호 출력 -->
@@ -82,9 +82,9 @@
     <a href="boardlist?pageNum=${i}" class="page-link ${i == pageNum ? 'active' : ''}">${i}</a>
   </c:forEach>
 
-  <!-- 다음 / 마지막 -->
-  <c:if test="${pageNum < totalPage}">
-    <a href="boardlist?pageNum=${pageNum + 1}" class="page-link">&rsaquo;</a>
+  <!-- 다음 블럭 / 마지막 -->
+  <c:if test="${endPage < totalPage}">
+    <a href="boardlist?pageNum=${endPage + 1}" class="page-link">&rsaquo;</a>
     <a href="boardlist?pageNum=${totalPage}" class="page-link">&raquo;</a>
   </c:if>
 </div>
