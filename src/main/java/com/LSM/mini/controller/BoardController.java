@@ -138,6 +138,7 @@ private SqlSession sqlSession;
 			return "alert/alert";
 		}	
 	}
+	
 	@RequestMapping(value = "/location")
 	public String location(HttpServletRequest request, Model model) {
 	   

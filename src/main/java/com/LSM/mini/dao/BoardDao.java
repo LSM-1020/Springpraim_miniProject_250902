@@ -17,6 +17,5 @@ public interface BoardDao {
 	public int boardModifyDao(String bnum, String btitle,String bcontent);
 	public void updateHitDao(String bnum); //해당 글의 조회수 1증가
 	public List<BoardDto> pageBoardListDao(int startRow, int endRow); //페이징된 게시판 글목록보기
-
-
+	
 }

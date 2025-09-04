@@ -9,7 +9,9 @@
   <link rel="stylesheet" href="${pageContext.request.contextPath}/resources/css/orderlist.css" />
 </head>
 <body>
+
  <%@ include file="include/header.jsp" %>
+ 
   <h1 class="title">주문 내역</h1>
 
   <table class="order-table">
@@ -42,7 +44,7 @@
   </table>
 
   <div class="btn-container">
-    <a class="btn" href="${pageContext.request.contextPath}/order">다시 주문하기</a>
+    <a class="btn" href="${pageContext.request.contextPath}/order">메뉴목록</a>
      <!-- 전체삭제 버튼 -->
   <form method="post" action="${pageContext.request.contextPath}/orderDeleteAll" onsubmit="return confirm('전체 주문을 삭제하시겠습니까?');" style="display:inline;">
     <button type="submit" class="btn btn-danger">전체삭제</button>
